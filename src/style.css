@@ -1,2 +1,2 @@
 /* 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-css */
-.hello {color: red;}
+.hello {background: url('./1.jpg'); color: red;}
