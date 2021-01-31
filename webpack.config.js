@@ -12,6 +12,9 @@ module.exports = {
 			,{test: /\.(png|svg|jpg|jpeg|gif)$/i, type: 'asset/resource'}
 			// 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-fonts
 			,{test: /\.(woff|woff2|eot|ttf|otf)$/i, type: 'asset/resource'}
+			// 2021-01-31 https://webpack.js.org/guides/asset-management/#loading-data
+			,{test: /\.(csv|tsv)$/i, use: ['csv-loader']}
+			,{test: /\.xml$/i, use: ['xml-loader'],}
 		]
 	}
 	,output: {filename: 'bundle.js', path: path.resolve(__dirname, 'dist')}
