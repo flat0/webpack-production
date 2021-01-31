@@ -1,5 +1,5 @@
 // 2021-01-26
-import './style.css'; // 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-cs
+import './style.css'; // 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-css
 import _ from 'lodash'; // 2021-01-26 https://webpack.js.org/guides/getting-started/#creating-a-bundle
 // 2021-01-31
 // 1) https://webpack.js.org/guides/asset-management/#loading-data
@@ -14,12 +14,14 @@ import xml from './data/1.xml';
 function component() {
 	const element = document.createElement('div');
 	element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-	element.classList.add('hello');
+	element.classList.add('hello'); // 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-css
+	// 2021-01-30 https://webpack.js.org/guides/asset-management/#loading-images
 	const image = new Image;
 	image.src = imageURL;
 	image.height = 100;
 	image.width = 100;
 	element.appendChild(image);
+	// 2021-01-31 https://webpack.js.org/guides/asset-management/#loading-data
 	console.log(csv);
 	console.log(xml);
 	return element;
