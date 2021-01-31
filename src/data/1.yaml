@@ -1,9 +1,0 @@
-# 2021-02-01 https://webpack.js.org/guides/asset-management/#customize-parser-of-json-modules
-title: YAML Example
-owner:
-  name: Tom Preston-Werner
-  organization: GitHub
-  bio: |-
-    GitHub Cofounder & CEO
-    Likes tater tots and beer.
-  dob: 1979-05-27T07:32:00.000Z

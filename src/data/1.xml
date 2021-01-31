@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- 2021-01-31 https://webpack.js.org/guides/asset-management/#loading-data -->
-<note>
-	<body>Call Cindy on Tuesday</body>
-	<from>John</from>
-	<heading>Reminder</heading>
-	<to>Mary</to>
-</note>
