@@ -9,6 +9,8 @@ function component() {
 	element.classList.add('hello');
 	const image = new Image;
 	image.src = imageURL;
+	image.height = 100;
+	image.width = 100;
 	element.appendChild(image);
 	return element;
 }
