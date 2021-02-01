@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 2021-02-01 https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
-	entry: {index: './src/index.js', print: './src/print.js'}
+	devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
+	,entry: {index: './src/index.js', print: './src/print.js'}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
 	,output: {filename: '[name].bundle.js', path: path.resolve(__dirname, 'dist')}
 	,plugins: [
