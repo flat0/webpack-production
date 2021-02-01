@@ -2,9 +2,15 @@
 const path = require('path');
 // 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 2021-02-01 https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
 	entry: {index: './src/index.js', print: './src/print.js'}
 	,output: {filename: '[name].bundle.js', path: path.resolve(__dirname, 'dist')}
-	// 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
-	,plugins: [new HtmlWebpackPlugin({title: 'Output Management'})]
+	,plugins: [
+		// 2021-02-01 https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder
+		new CleanWebpackPlugin()
+		// 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
+		,new HtmlWebpackPlugin({title: 'Output Management'})
+	]
 };
