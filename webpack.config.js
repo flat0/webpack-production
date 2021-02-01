@@ -1,6 +1,10 @@
 // 2021-01-26 https://webpack.js.org/guides/getting-started/#using-a-configuration
 const path = require('path');
+// 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {index: './src/index.js', print: './src/print.js'}
 	,output: {filename: '[name].bundle.js', path: path.resolve(__dirname, 'dist')}
+	// 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
+	,plugins: [new HtmlWebpackPlugin({title: 'Output Management'})]
 };
