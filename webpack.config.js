@@ -6,7 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
 	// 2021-02-02
-	// «This tells `webpack-dev-server` to serve the files from the `dist` directory on `localhost:8080`»:
+	// 1) «This tells `webpack-dev-server` to serve the files from the `dist` directory on `localhost:8080`»
+	// 2) «`webpack-dev-server` doesn't write any output files after compiling.
+	// Instead, it keeps bundle files in memory and serves them as if they were real files mounted at the server's root path.»
 	// https://webpack.js.org/guides/development/#using-webpack-dev-server
 	devServer: {contentBase: './dist'}
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
