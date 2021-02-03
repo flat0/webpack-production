@@ -23,7 +23,11 @@ module.exports = {
 		,port: 2212 // 2021-02-02 https://webpack.js.org/configuration/dev-server/#devserverport
 	}
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
-	,entry: {index: './src/index.js', print: './src/print.js'}
+	,entry: {
+		another: './src/another-module.js' // 2021-02-03 https://webpack.js.org/guides/code-splitting#entry-points
+		,index: './src/index.js'
+		,print: './src/print.js' // 2021-02-01 https://webpack.js.org/guides/output-management/#preparation
+	}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
 	,output: {
 		filename: '[name].bundle.js'
