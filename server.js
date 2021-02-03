@@ -1,13 +1,18 @@
 // 2021-02-03 https://webpack.js.org/guides/development/#using-webpack-dev-middleware
-const express = require('express');
+const express = require('express'); // 2021-02-03 https://expressjs.com
+const fs = require('fs');
+const https = require('https'); // 2021-02-03 https://expressjs.com/en/api.html#app.listen
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const app = express();
 const config = require('./webpack.config.js');
 const compiler = webpack(config);
-app.use(
-	webpackDevMiddleware(compiler, {
-		publicPath: config.output.publicPath,
-	})
-);
-app.listen(3000, function () {console.log('Example app listening on port 3000!\n');});
+const app = express();
+app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath,}));
+// 2021-02-03 https://stackoverflow.com/a/11745114
+https.createServer({
+	cert: fs.readFileSync('C:/server/cert/.crt', 'utf8')
+	,host: 'localhost.com'
+	,key: fs.readFileSync('C:/server/cert/.key', 'utf8')
+}, app).listen(2212);
+// 2021-02-03 https://expressjs.com/en/api.html#app.listen
+//app.listen(2212, function () {console.log('Example app listening on port 2212!\n');});
