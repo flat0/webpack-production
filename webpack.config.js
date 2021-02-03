@@ -56,6 +56,7 @@ module.exports = {
 				}
 			}
 		}
+		,usedExports: true // 2021-02-04 https://webpack.js.org/guides/tree-shaking#add-a-utility
 	}
 	,output: {
 		// 2021-02-03
