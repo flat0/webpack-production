@@ -24,11 +24,24 @@ module.exports = {
 	}
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
 	,entry: {
-		another: './src/another-module.js' // 2021-02-03 https://webpack.js.org/guides/code-splitting#entry-points
-		,index: './src/index.js'
+		// 2021-02-03 https://webpack.js.org/guides/code-splitting#entry-points
+		another: {
+			// 2021-02-03 https://webpack.js.org/guides/code-splitting/#entry-dependencies
+			dependOn: 'shared', import: './src/another-module.js'
+		}
+		,index: {
+			// 2021-02-03 https://webpack.js.org/guides/code-splitting/#entry-dependencies
+			dependOn: 'shared', import: './src/index.js'
+		}
 		,print: './src/print.js' // 2021-02-01 https://webpack.js.org/guides/output-management/#preparation
+		,shared: 'lodash' // 2021-02-03 https://webpack.js.org/guides/code-splitting/#entry-dependencies
 	}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
+	// 2021-02-03
+	// 1) If we're going to use multiple entry points on a single HTML page, optimization.runtimeChunk: 'single' is needed too»:
+	// https://webpack.js.org/guides/code-splitting/#entry-dependencies
+	// 2) https://bundlers.tooling.report/code-splitting/multi-entry
+	,optimization: {runtimeChunk: 'single'}
 	,output: {
 		filename: '[name].bundle.js'
 		,path: path.resolve(__dirname, 'dist')
