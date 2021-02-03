@@ -1,14 +1,17 @@
-// 2021-01-26
-import _ from 'lodash'; // 2021-01-26 https://webpack.js.org/guides/getting-started/#creating-a-bundle
-import printMe from './print.js'; // 2021-02-01 https://webpack.js.org/guides/output-management/#preparation
-// 2021-01-26 https://webpack.js.org/guides/getting-started/#basic-setup
-function component() {
-	const element = document.createElement('div');
-	element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-	const btn = document.createElement('button');
-	btn.innerHTML = 'Click me and check the console!';
-	btn.onclick = printMe;
-	element.appendChild(btn);
-	return element;
-}
-document.body.appendChild(component());
+// 2021-02-03 https://webpack.js.org/guides/code-splitting/#dynamic-imports
+function getComponent() {return import('lodash')
+	// 2021-02-03
+	// «The reason we need `default`
+	// is that since webpack 4, when importing a CommonJS module,
+	// the import will no longer resolve to the value of module.exports,
+	// it will instead create an artificial namespace object for the CommonJS module.»
+	// https://webpack.js.org/guides/code-splitting/#dynamic-imports
+	// https://medium.com/webpack/webpack-4-import-and-commonjs-d619d626b655
+	.then(({default: _}) => {
+		const e = document.createElement('div');
+		e.innerHTML = _.join(['Hello', 'webpack'], ' ');
+		return e;
+	})
+	.catch((error) => 'An error occurred while loading the component')
+;}
+getComponent().then(с => document.body.appendChild(с));

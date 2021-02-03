@@ -23,17 +23,8 @@ module.exports = {
 		,port: 2212 // 2021-02-02 https://webpack.js.org/configuration/dev-server/#devserverport
 	}
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
-	,entry: {
-		// 2021-02-03 https://webpack.js.org/guides/code-splitting#entry-points
-		another: './src/another-module.js'
-		,index: './src/index.js'
-		,print: './src/print.js' // 2021-02-01 https://webpack.js.org/guides/output-management/#preparation
-	}
+	,entry: {index: './src/index.js'}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
-	,optimization: {
-		// 2021-02-03 https://webpack.js.org/guides/code-splitting/#splitchunksplugin
-		splitChunks: {chunks: 'all'}
-	}
 	,output: {
 		filename: '[name].bundle.js'
 		,path: path.resolve(__dirname, 'dist')
