@@ -26,5 +26,6 @@
 		"start": "webpack serve --open",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch": "webpack --watch"
-	}
+	},
+	"sideEffects": false
 }

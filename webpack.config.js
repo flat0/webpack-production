@@ -24,7 +24,7 @@ module.exports = {
 	}
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
 	,entry: {index: './src/index.js'}
-	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
+	,mode: 'production' // 2021-02-01 https://webpack.js.org/guides/development
 	// 2021-02-03 https://webpack.js.org/guides/caching#extracting-boilerplate
 	,optimization: {
 		// 2021-02-03
@@ -56,7 +56,7 @@ module.exports = {
 				}
 			}
 		}
-		,usedExports: true // 2021-02-04 https://webpack.js.org/guides/tree-shaking#add-a-utility
+		//,usedExports: true // 2021-02-04 https://webpack.js.org/guides/tree-shaking#add-a-utility
 	}
 	,output: {
 		// 2021-02-03
