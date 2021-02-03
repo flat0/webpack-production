@@ -8,11 +8,11 @@ const config = require('./webpack.config.js');
 const compiler = webpack(config);
 const app = express();
 app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath,}));
-// 2021-02-03 https://stackoverflow.com/a/11745114
+// 2021-02-03
+// 1) https://stackoverflow.com/a/11745114
+// 2) https://expressjs.com/en/api.html#app.listen
 https.createServer({
 	cert: fs.readFileSync('C:/server/cert/.crt', 'utf8')
 	,host: 'localhost.com'
 	,key: fs.readFileSync('C:/server/cert/.key', 'utf8')
 }, app).listen(2212);
-// 2021-02-03 https://expressjs.com/en/api.html#app.listen
-//app.listen(2212, function () {console.log('Example app listening on port 2212!\n');});
