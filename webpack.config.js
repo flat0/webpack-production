@@ -26,7 +26,11 @@ module.exports = {
 	,entry: {index: './src/index.js'}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
 	,output: {
-		filename: '[name].bundle.js'
+		// 2021-02-03
+		// «The `[contenthash]` substitution will add a unique hash based on the content of an asset.
+		// When the asset's content changes, `[contenthash]` will change as well.»
+		// https://webpack.js.org/guides/caching#output-filenames
+		filename: '[name].[contenthash].js'
 		,path: path.resolve(__dirname, 'dist')
 		,publicPath: '/' // 2021-02-03 https://webpack.js.org/guides/development/#using-webpack-dev-middleware
 	}
@@ -42,7 +46,7 @@ module.exports = {
 		})
 		// 2021-02-01 https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
 		,new HtmlWebpackPlugin({
-			title: 'Development' // 2021-02-01 https://webpack.js.org/guides/development
+			title: 'Caching' // 2021-02-03 https://webpack.js.org/guides/caching#output-filenames
 		})
 	]
 };
