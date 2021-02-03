@@ -25,6 +25,25 @@ module.exports = {
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
 	,entry: {index: './src/index.js'}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
+	// 2021-02-03 https://webpack.js.org/guides/caching/#extracting-boilerplate
+	,optimization: {
+		runtimeChunk: 'single'
+		// 2021-02-03
+		// «It's also good practice to extract third-party libraries, such as lodash or react,
+		// to a separate vendor chunk as they are less likely to change than our local source code.
+		// This step will allow clients to request even less from the server to stay up to date.
+		// This can be done by using the `cacheGroups` option.»
+		// https://webpack.js.org/guides/caching#extracting-boilerplate
+		,splitChunks: {
+			cacheGroups: {
+				vendor: {
+					chunks: 'all'
+					,name: 'vendors'
+					,test: /[\\/]node_modules[\\/]/
+				}
+			}
+		}
+	}
 	,output: {
 		// 2021-02-03
 		// «The `[contenthash]` substitution will add a unique hash based on the content of an asset.
