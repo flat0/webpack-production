@@ -25,7 +25,11 @@ module.exports = {
 	,devtool: 'inline-source-map' // 2021-02-01 https://webpack.js.org/guides/development
 	,entry: {index: './src/index.js', print: './src/print.js'}
 	,mode: 'development' // 2021-02-01 https://webpack.js.org/guides/development
-	,output: {filename: '[name].bundle.js', path: path.resolve(__dirname, 'dist')}
+	,output: {
+		filename: '[name].bundle.js'
+		,path: path.resolve(__dirname, 'dist')
+		,publicPath: '/' // 2021-02-03 https://webpack.js.org/guides/development/#using-webpack-dev-middleware
+	}
 	,plugins: [
 		// 2021-02-01 https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder
 		new CleanWebpackPlugin({
